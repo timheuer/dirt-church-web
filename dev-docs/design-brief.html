@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dirt Church CC — Design Brief</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --dark-olive: #303010;
+            --warm-brown: #402010;
+            --cream: #F0F0D0;
+            --ivory: #F0F0E0;
+            --copper: #C07040;
+            --gold: #E0A050;
+            --deep-brown: #502010;
+            --strava-orange: #FC4C02;
+            --dusty-rose: #B09090;
+            --sage: #A0A090;
+            --sand: #E0C0A0;
+            --bg: #1a1a0a;
+            --bg-card: #252510;
+            --bg-card-alt: #2a2a14;
+            --border: #40401a;
+            --text: #F0F0D0;
+            --text-muted: #A0A080;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 16px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── NAV ─── */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(26, 26, 10, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
+        }
+
+        .nav-brand {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--cream);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cream);
+            background: var(--bg-card);
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            text-align: center;
+            padding: 80px 24px 60px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero img {
+            max-width: 480px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 32px;
+            filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.5));
+        }
+
+        .hero h1 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: clamp(32px, 5vw, 48px);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--cream);
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 18px;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .hero .meta {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 28px;
+            flex-wrap: wrap;
+        }
+
+        .hero .meta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero .meta-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+        }
+
+        .hero .meta-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--copper);
+        }
+
+        /* ─── SECTIONS ─── */
+        .content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 64px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        .section-label {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--copper);
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: clamp(24px, 3.5vw, 32px);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--cream);
+            margin-bottom: 24px;
+        }
+
+        h3 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--gold);
+            margin-bottom: 16px;
+            margin-top: 40px;
+        }
+
+        h3:first-of-type {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--ivory);
+        }
+
+        strong {
+            color: var(--cream);
+            font-weight: 600;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875em;
+            background: var(--bg-card);
+            padding: 2px 7px;
+            border-radius: 4px;
+            color: var(--gold);
+        }
+
+        /* ─── COLOR SWATCHES ─── */
+        .palette-group {
+            margin-bottom: 40px;
+        }
+
+        .swatches {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 12px;
+        }
+
+        .swatch {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 16px;
+            transition: transform 0.15s, border-color 0.2s;
+        }
+
+        .swatch:hover {
+            transform: translateY(-2px);
+            border-color: var(--text-muted);
+        }
+
+        .swatch-color {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            flex-shrink: 0;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .swatch-info {
+            min-width: 0;
+        }
+
+        .swatch-name {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--cream);
+            margin-bottom: 2px;
+        }
+
+        .swatch-hex {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .swatch-usage {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 2px;
+            line-height: 1.4;
+        }
+
+        /* ─── MOOD BARS ─── */
+        .mood-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .mood-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .mood-bar-label {
+            width: 120px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .mood-bar-track {
+            flex: 1;
+            height: 10px;
+            background: var(--bg-card);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .mood-bar-fill {
+            height: 100%;
+            border-radius: 5px;
+            transition: width 0.6s ease;
+        }
+
+        .mood-bar-value {
+            width: 45px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* ─── CARDS ─── */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .card h4 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--copper);
+            margin-bottom: 12px;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card li {
+            padding: 4px 0;
+            font-size: 14px;
+            color: var(--ivory);
+        }
+
+        .card li::before {
+            content: '→ ';
+            color: var(--text-muted);
+        }
+
+        /* ─── DESIGN DIRECTION CARDS ─── */
+        .direction-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .direction-card.recommended {
+            border-color: var(--copper);
+        }
+
+        .direction-card.recommended::before {
+            content: 'RECOMMENDED';
+            position: absolute;
+            top: 16px;
+            right: -32px;
+            background: var(--copper);
+            color: var(--bg);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            padding: 4px 40px;
+            transform: rotate(45deg);
+        }
+
+        .direction-card h4 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .direction-swatches {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .direction-swatch {
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .direction-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .direction-card li {
+            padding: 3px 0;
+            font-size: 14px;
+            color: var(--ivory);
+        }
+
+        .direction-card li strong {
+            color: var(--cream);
+            font-weight: 600;
+            display: inline-block;
+            min-width: 90px;
+        }
+
+        .direction-card .feel {
+            margin-top: 12px;
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* ─── ASSET TABLE ─── */
+        .asset-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        .asset-table th {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            text-align: left;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .asset-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+            color: var(--ivory);
+        }
+
+        .asset-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .asset-table .mono {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--gold);
+        }
+
+        .asset-table .dim {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* ─── CHECKLIST ─── */
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 14px;
+            color: var(--ivory);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .checklist .check-box {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--text-muted);
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        /* ─── NOTES ─── */
+        .notes {
+            list-style: none;
+            padding: 0;
+        }
+
+        .notes li {
+            position: relative;
+            padding: 12px 16px 12px 28px;
+            margin-bottom: 8px;
+            background: var(--bg-card);
+            border-left: 3px solid var(--copper);
+            border-radius: 0 8px 8px 0;
+            font-size: 14px;
+            color: var(--ivory);
+        }
+
+        /* ─── STYLE PILLS ─── */
+        .pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .pill {
+            display: inline-block;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        .pill.accent {
+            border-color: var(--copper);
+            color: var(--copper);
+        }
+
+        /* ─── LAYOUT PRINCIPLES ─── */
+        .principles {
+            counter-reset: principle;
+            list-style: none;
+            padding: 0;
+        }
+
+        .principles li {
+            counter-increment: principle;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .principles li:last-child {
+            border-bottom: none;
+        }
+
+        .principles li::before {
+            content: counter(principle, decimal-leading-zero);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            color: var(--border);
+            line-height: 1;
+            flex-shrink: 0;
+            width: 36px;
+        }
+
+        .principles li strong {
+            color: var(--cream);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            color: var(--text-muted);
+            font-size: 13px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 720px) {
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 48px 0;
+            }
+
+            .hero {
+                padding: 60px 24px 48px;
+            }
+
+            .swatches {
+                grid-template-columns: 1fr;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mood-bar-label {
+                width: 80px;
+                font-size: 12px;
+            }
+
+            .asset-table {
+                font-size: 13px;
+            }
+
+            .asset-table th,
+            .asset-table td {
+                padding: 8px 10px;
+            }
+        }
+
+        @media print {
+            .nav {
+                display: none;
+            }
+
+            body {
+                background: #fff;
+                color: #222;
+            }
+
+            .swatch,
+            .card,
+            .direction-card {
+                border-color: #ccc;
+                background: #f9f9f9;
+            }
+
+            h2,
+            h3,
+            .section-label {
+                color: #333;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-brand">Dirt Church CC — Design Brief</a>
+            <div class="nav-links">
+                <a href="#colors">Colors</a>
+                <a href="#style">Style</a>
+                <a href="#typography">Type</a>
+                <a href="#web">Web</a>
+                <a href="#assets">Assets</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <img src="../docs/dirtchurch-strava-banner.png" alt="Dirt Church CC Logo">
+        <h1>Dirt Church CC</h1>
+        <p>Design brief derived from existing brand assets for the Dirt Church cycling club.</p>
+        <div class="meta">
+            <div class="meta-item">
+                <span class="meta-label">Domain</span>
+                <span class="meta-value">dirtchurch.cc</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Platform</span>
+                <span class="meta-value">Strava</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Identity</span>
+                <span class="meta-value">Cycling Club</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Generated</span>
+                <span class="meta-value">2026-02-14</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+
+        <!-- ─── LOGO & ARTWORK ─── -->
+        <section id="artwork">
+            <div class="section-label">Brand Identity</div>
+            <h2>Logo &amp; Artwork</h2>
+            <p>The logo is a <strong>badge/crest-style mark</strong> with a centrally composed design. Heavy use of
+                transparency makes it versatile for placement over various backgrounds.</p>
+
+            <table class="asset-table">
+                <thead>
+                    <tr>
+                        <th>Asset</th>
+                        <th>Dimensions</th>
+                        <th>Format</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Strava Banner</td>
+                        <td class="dim">1183 × 580</td>
+                        <td class="dim">PNG, RGBA</td>
+                        <td>Centered artwork; ~92% transparent canvas</td>
+                    </tr>
+                    <tr>
+                        <td>Square Logo</td>
+                        <td class="dim">733 × 733</td>
+                        <td class="dim">PNG, RGBA</td>
+                        <td>Compact badge/crest format</td>
+                    </tr>
+                    <tr>
+                        <td>Social Image</td>
+                        <td class="dim">1200 × 630</td>
+                        <td class="dim">PNG, RGBA</td>
+                        <td>Open Graph / social sharing card</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ─── COLOR PALETTE ─── -->
+        <section id="colors">
+            <div class="section-label">Color System</div>
+            <h2>Color Palette</h2>
+
+            <h3>Primary Colors</h3>
+            <div class="palette-group">
+                <div class="swatches">
+                    <div class="swatch">
+                        <div class="swatch-color" style="background:#303010;"></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Dark Olive / Forest</div>
+                            <div class="swatch-hex">#303010 · 48, 48, 16</div>
+                            <div class="swatch-usage">Primary brand color — ~51% of banner</div>
+                        </div>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background:#402010;"></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Warm Brown</div>
+                            <div class="swatch-hex">#402010 · 64, 32, 16</div>
+                            <div class="swatch-usage">Secondary dark — rich chocolate</div>
+                        </div>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background:#F0F0D0;"></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Cream / Parchment</div>
+                            <div class="swatch-hex">#F0F0D0 · 240, 240, 208</div>
+                            <div class="swatch-usage">Primary light — warm off-white</div>
+                        </div>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background:#F0F0E0;"></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Ivory</div>
+                            <div class="swatch-hex">#F0F0E0 · 240, 240, 224</div>
+                            <div class="swatch-usage">Secondary light — warmer cream</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Secondary / Accent Colors</h3>
+            <div class="palette-group">
+                <div class="swatches">
+                    <div class="swatch">
+                        <div class="swatch-color" style="background:#C07040;"></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Rust / Copper</div>
+                            <div class="swatch-hex">#C07040 · 192, 112, 64</div>
+                            <div class="swatch-usage">Warm accent — earthy copper</div>
+                        </div>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background:#E0A050;"></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Amber / Gold</div>
+                            <div class="swatch-hex">#E0A050 · 224, 160, 80</div>
+                            <div class="swatch-usage">Highlight accent — golden warmth</div>
+                        </div>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background:#502010;"></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Deep Brown</div>
+                            <div class="swatch-hex">#502010 · 80, 32, 16</div>
+                            <div class="swatch-usage">Dark accent variation</div>
+                        </div>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background:#FC4C02;"></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Strava Orange</div>
+                            <div class="swatch-hex">#FC4C02 · 252, 76, 2</div>
+                            <div class="swatch-usage">CTA / Strava integration only</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Extended Neutrals</h3>
+            <div class="palette-group">
+                <div class="swatches">
+                    <div class="swatch">
+                        <div class="swatch-color" style="background:#B09090;"></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Dusty Rose / Mauve</div>
+                            <div class="swatch-hex">#B09090 · 176, 144, 144</div>
+                            <div class="swatch-usage">Muted mid-tone from logo</div>
+                        </div>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background:#A0A090;"></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Sage</div>
+                            <div class="swatch-hex">#A0A090 · 160, 160, 144</div>
+                            <div class="swatch-usage">Muted green-grey neutral</div>
+                        </div>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background:#E0C0A0;"></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Sand</div>
+                            <div class="swatch-hex">#E0C0A0 · 224, 192, 160</div>
+                            <div class="swatch-usage">Warm neutral for backgrounds</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Color Mood Breakdown</h3>
+            <div class="mood-bars">
+                <div class="mood-bar-row">
+                    <span class="mood-bar-label">Dark tones</span>
+                    <div class="mood-bar-track">
+                        <div class="mood-bar-fill" style="width:66%; background: var(--dark-olive);"></div>
+                    </div>
+                    <span class="mood-bar-value">66%</span>
+                </div>
+                <div class="mood-bar-row">
+                    <span class="mood-bar-label">Light tones</span>
+                    <div class="mood-bar-track">
+                        <div class="mood-bar-fill" style="width:22%; background: var(--cream);"></div>
+                    </div>
+                    <span class="mood-bar-value">22%</span>
+                </div>
+                <div class="mood-bar-row">
+                    <span class="mood-bar-label">Mid-tones</span>
+                    <div class="mood-bar-track">
+                        <div class="mood-bar-fill" style="width:12%; background: var(--sage);"></div>
+                    </div>
+                    <span class="mood-bar-value">12%</span>
+                </div>
+                <div class="mood-bar-row">
+                    <span class="mood-bar-label">Warm-leaning</span>
+                    <div class="mood-bar-track">
+                        <div class="mood-bar-fill" style="width:43%; background: var(--copper);"></div>
+                    </div>
+                    <span class="mood-bar-value">43%</span>
+                </div>
+            </div>
+            <p style="margin-top: 16px; font-size: 14px; color: var(--text-muted);">Overall feel: <strong
+                    style="color: var(--gold);">Rustic · Earthy · Vintage · Outdoor</strong></p>
+        </section>
+
+        <!-- ─── DESIGN CHARACTERISTICS ─── -->
+        <section id="style">
+            <div class="section-label">Visual Identity</div>
+            <h2>Design Characteristics</h2>
+
+            <h3>Visual Style</h3>
+            <div class="pills">
+                <span class="pill accent">Rustic</span>
+                <span class="pill accent">Outdoors</span>
+                <span class="pill accent">Heritage</span>
+                <span class="pill">Badge / Crest</span>
+                <span class="pill">Symmetrical</span>
+                <span class="pill">High Contrast</span>
+                <span class="pill">Transparent</span>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Aesthetic</h4>
+                    <ul>
+                        <li>Vintage cycling club crest or trail marking</li>
+                        <li>Centrally anchored badge/crest design</li>
+                        <li>High contrast dark olive ↔ cream elements</li>
+                        <li>Floats over backgrounds (no built-in fill)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Mood &amp; Tone</h4>
+                    <ul>
+                        <li>Gravel / dirt / off-road cycling culture</li>
+                        <li>Community & club identity, not corporate</li>
+                        <li>Earthy and organic — connected to the land</li>
+                        <li>Approachable with a sense of pride</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── TYPOGRAPHY ─── -->
+        <section id="typography">
+            <div class="section-label">Type System</div>
+            <h2>Typography Recommendations</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Display / Headlines</h4>
+                    <ul>
+                        <li>Slab serifs or condensed sans-serifs</li>
+                        <li>Playfair Display</li>
+                        <li>Stint Ultra Expanded</li>
+                        <li>Oswald · Barlow Condensed</li>
+                        <li>All-caps lockups pair with the crest</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Body Copy</h4>
+                    <ul>
+                        <li>Clean, readable sans-serifs</li>
+                        <li>Inter · Source Sans Pro</li>
+                        <li>Lato · Nunito</li>
+                        <li>Modern feel balances vintage logo</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Monospace / Utility</h4>
+                    <ul>
+                        <li>For stats, ride data, route info</li>
+                        <li>JetBrains Mono</li>
+                        <li>IBM Plex Mono</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                style="margin-top: 32px; padding: 24px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;">
+                <p
+                    style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 28px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--cream); margin-bottom: 8px;">
+                    The quick brown fox jumps over the lazy dog
+                </p>
+                <p style="font-size: 15px; color: var(--ivory); margin-bottom: 8px;">
+                    The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs. 0123456789
+                </p>
+                <p
+                    style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--text-muted); margin-bottom: 0;">
+                    Distance: 42.6 km · Elevation: 1,283 m · Time: 02:14:37
+                </p>
+            </div>
+        </section>
+
+        <!-- ─── WEB DESIGN ─── -->
+        <section id="web">
+            <div class="section-label">Web Guidelines</div>
+            <h2>Recommended Design Direction</h2>
+
+            <div class="direction-card recommended">
+                <h4>Option A — Dark &amp; Earthy</h4>
+                <div class="direction-swatches">
+                    <div class="direction-swatch" style="background: #1a1a0a;"></div>
+                    <div class="direction-swatch" style="background: #303010;"></div>
+                    <div class="direction-swatch" style="background: #F0F0D0;"></div>
+                    <div class="direction-swatch" style="background: #C07040;"></div>
+                    <div class="direction-swatch" style="background: #E0A050;"></div>
+                    <div class="direction-swatch" style="background: #FC4C02;"></div>
+                </div>
+                <ul>
+                    <li><strong>Background</strong> Dark olive <code>#303010</code> or near-black <code>#1a1a0a</code>
+                    </li>
+                    <li><strong>Text</strong> Cream <code>#F0F0D0</code> / Ivory <code>#F0F0E0</code></li>
+                    <li><strong>Accents</strong> Copper <code>#C07040</code> and Gold <code>#E0A050</code></li>
+                    <li><strong>CTA</strong> Strava Orange <code>#FC4C02</code></li>
+                </ul>
+                <p class="feel">Immersive, night-ride energy — logo pops on dark backgrounds.</p>
+            </div>
+
+            <div class="direction-card">
+                <h4>Option B — Light &amp; Vintage</h4>
+                <div class="direction-swatches">
+                    <div class="direction-swatch" style="background: #F0F0D0;"></div>
+                    <div class="direction-swatch" style="background: #F5F5E8;"></div>
+                    <div class="direction-swatch" style="background: #303010;"></div>
+                    <div class="direction-swatch" style="background: #402010;"></div>
+                    <div class="direction-swatch" style="background: #A0A090;"></div>
+                    <div class="direction-swatch" style="background: #FC4C02;"></div>
+                </div>
+                <ul>
+                    <li><strong>Background</strong> Cream <code>#F0F0D0</code> or warm white <code>#F5F5E8</code></li>
+                    <li><strong>Text</strong> Dark olive <code>#303010</code> / Brown <code>#402010</code></li>
+                    <li><strong>Accents</strong> Copper highlights, muted sage dividers</li>
+                    <li><strong>CTA</strong> Strava Orange or Dark Olive buttons</li>
+                </ul>
+                <p class="feel">Parchment/vintage poster — bright and welcoming.</p>
+            </div>
+
+            <h3>Layout Principles</h3>
+            <ol class="principles">
+                <li><strong>Logo-first hero</strong> — the crest is the centerpiece of every layout</li>
+                <li><strong>Generous whitespace</strong> — let the badge breathe with ample padding</li>
+                <li><strong>Single strong CTA</strong> — Strava join link stays the primary action</li>
+                <li><strong>Expandable sections</strong> — about, upcoming rides, photo gallery, member count, route
+                    highlights</li>
+            </ol>
+        </section>
+
+        <!-- ─── ASSET INVENTORY ─── -->
+        <section id="assets">
+            <div class="section-label">Assets</div>
+            <h2>Asset Inventory</h2>
+
+            <h3>Existing Assets</h3>
+            <table class="asset-table">
+                <thead>
+                    <tr>
+                        <th>File</th>
+                        <th>Dimensions</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="mono">art/dirtchucrch-strava-banner.png</td>
+                        <td class="dim">1183 × 580</td>
+                        <td>Source banner</td>
+                    </tr>
+                    <tr>
+                        <td class="mono">art/dirtchurch-square.png</td>
+                        <td class="dim">733 × 733</td>
+                        <td>Square logo</td>
+                    </tr>
+                    <tr>
+                        <td class="mono">art/dirtchurch-new.psd</td>
+                        <td class="dim">—</td>
+                        <td>Photoshop source (new)</td>
+                    </tr>
+                    <tr>
+                        <td class="mono">art/dirtchurch.psd</td>
+                        <td class="dim">—</td>
+                        <td>Photoshop source (original)</td>
+                    </tr>
+                    <tr>
+                        <td class="mono">docs/dirtchurch-strava-banner.png</td>
+                        <td class="dim">1200 × 630</td>
+                        <td>Web-optimized banner</td>
+                    </tr>
+                    <tr>
+                        <td class="mono">docs/dirtchurch-square.png</td>
+                        <td class="dim">733 × 733</td>
+                        <td>Web-optimized square</td>
+                    </tr>
+                    <tr>
+                        <td class="mono">docs/social-image.png</td>
+                        <td class="dim">1200 × 630</td>
+                        <td>OG / social sharing card</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Needed Assets</h3>
+            <ul class="checklist">
+                <li>
+                    <div class="check-box"></div> Favicon (16×16, 32×32, 180×180 apple-touch-icon)
+                </li>
+                <li>
+                    <div class="check-box"></div> SVG version of logo for scalable web use
+                </li>
+                <li>
+                    <div class="check-box"></div> Horizontal / wordmark lockup for navigation headers
+                </li>
+                <li>
+                    <div class="check-box"></div> Dark and light background variants of logo
+                </li>
+                <li>
+                    <div class="check-box"></div> Brand pattern or texture (dirt/gravel inspired)
+                </li>
+            </ul>
+        </section>
+
+        <!-- ─── USAGE NOTES ─── -->
+        <section id="notes">
+            <div class="section-label">Reference</div>
+            <h2>Usage Notes</h2>
+            <ul class="notes">
+                <li>The source filename has a typo (<code>dirtchucrch</code> vs <code>dirtchurch</code>) — be aware when
+                    referencing art assets.</li>
+                <li>The logo uses RGBA transparency — always place on intentional backgrounds, never default white.</li>
+                <li>Strava Orange should be reserved exclusively for Strava-related CTAs to maintain platform
+                    association.</li>
+                <li>Dark olive <code>#303010</code> is the single most defining brand color — use it consistently as the
+                    anchor.</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <footer>
+        Dirt Church CC — Design Brief · Generated from brand assets · February 14, 2026
+    </footer>
+
+</body>
+
+</html>
